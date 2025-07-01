@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎡 Spin & Win - Daily Rewards!</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One:wght@400&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Top Banner Ad -->
+    <div class="ad-banner top-ad" id="topAd">
+        <div class="ad-content">🎯 Special Offer! 50% Bonus Coins - Click Here! 🎯</div>
+    </div>
+
+    <!-- Left Sidebar Ad -->
+    <div class="ad-sidebar left-ad" id="leftAd">
+        <div class="ad-content">
+            <p>💰 Earn More!</p>
+            <p>Click & Win</p>
+        </div>
+    </div>
+
+    <!-- Right Sidebar Ad -->
+    <div class="ad-sidebar right-ad" id="rightAd">
+        <div class="ad-content">
+            <p>🎮 Play Games</p>
+            <p>Win Prizes</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Login Screen -->
+        <div id="loginScreen" class="screen active">
+            <div class="login-box">
+                <h1>🎡 Spin & Win 🎡</h1>
+                <p class="subtitle">💰 Earn ₹2.50+ Daily! 💰</p>
+                <div class="input-group">
+                    <input type="text" id="userIdInput" placeholder="Enter your Telegram User ID" maxlength="15">
+                    <button onclick="login()" class="btn-primary">🚀 Start Playing</button>
+                </div>
+                <div class="features">
+                    <div class="feature">🎯 15 Free Spins Daily</div>
+                    <div class="feature">🎫 Special Scratch Card</div>
+                    <div class="feature">💸 Instant Payouts</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Game Screen -->
+        <div id="gameScreen" class="screen">
+            <div class="header">
+                <h2>🎡 Spin & Win</h2>
+                <div class="user-info">
+                    <span id="userId"></span>
+                    <span id="dailyEarnings">₹0.00</span>
+                </div>
+            </div>
+
+            <div class="stats-row">
+                <div class="stat-box">
+                    <span class="stat-label">Spins Left</span>
+                    <span class="stat-value" id="spinsLeft">15</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-label">Today's Earnings</span>
+                    <span class="stat-value" id="todayEarnings">₹0.00</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-label">Total Earnings</span>
+                    <span class="stat-value" id="totalEarnings">₹0.00</span>
+                </div>
+            </div>
+            
+            <div class="reset-timer" id="resetTimer" style="text-align: center; margin: 10px 0; font-weight: bold; color: #667eea; font-size: 0.9em;">
+                Next reset: at midnight
+            </div>
+
+            <!-- Spin Wheel -->
+            <div class="spin-container">
+                <div class="wheel-container" id="wheelContainer">
+                    <div class="wheel" id="wheel">
+                        <div class="slice slice1">😍</div>
+                        <div class="slice slice2">🤑</div>
+                        <div class="slice slice3">🥳</div>
+                        <div class="slice slice4">💎</div>
+                    </div>
+                    <div class="wheel-pointer">📍</div>
+                    <div class="wheel-glow"></div>
+                </div>
+                <button id="spinBtn" onclick="startAdAndSpin()" class="btn-spin" disabled>🎯 SPIN & WIN!</button>
+                <div class="spin-instruction">One click = Ad + Spin!</div>
+                <button onclick="logout()" class="btn-logout">🚪 Logout</button>
+            </div>
+
+            <!-- Result Display -->
+            <div id="resultDisplay" class="result-display">
+                <h3 id="resultTitle"></h3>
+                <div id="resultAmount"></div>
+                <div id="resultEmoji"></div>
+            </div>
+
+            <!-- Scratch Card -->
+            <div id="scratchContainer" class="scratch-container" style="display: none;">
+                <h3>🎫 Special Scratch Card!</h3>
+                <div class="scratch-card" id="scratchCard" onclick="scratchCard()">
+                    <div class="scratch-overlay">
+                        <span>Scratch Here!</span>
+                    </div>
+                    <div class="scratch-content">
+                        <div id="scratchAmount">₹0.00</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom Banner Ad -->
+    <div class="ad-banner bottom-ad" id="bottomAd">
+        <div class="ad-content">🏆 Join Premium Games - Double Your Wins! 🏆</div>
+    </div>
+
+    <script src="{{ url_for('static', filename='ads.js') }}"></script>
+    <script src="{{ url_for('static', filename='spin.js') }}"></script>
+</body>
+</html>
